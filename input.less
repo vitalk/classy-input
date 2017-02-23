@@ -1,0 +1,127 @@
+// Form input.
+//
+// By state:
+//
+// .input_disabled - Used when the input is disabled.
+// .input_focused - Used when the input is focused.
+// .input_invalid - Used when the input is invalid.
+//
+// By type:
+//
+// .input_block - To ensure the textarea occupy the all available width.
+//
+// By size:
+//
+// .input_size_s - Used for small input.
+// .input_size_l - Used for large input.
+
+
+.input {
+  // Create a new positional context.
+  position: relative;
+
+  display: inline-block;
+
+
+  &:before {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    left: 1px;
+
+    content: '';
+    background: #fff;
+  }
+
+
+  &__box {
+    position: relative;
+    display: block;
+
+    user-select: none;
+  }
+
+
+  &__control {
+    display: block;
+
+    // Ensure the form control occupy all available width.
+    width: 100%;
+
+    // Width is big enough by default, but not more them parent element.
+    max-width: 100%;
+
+    margin: 0;
+    padding: @unit/8 @unit/4;
+
+    // Remove outline and default decoration from control.
+    border: 0;
+    background: none;
+    outline: none;
+
+    // Ensure the font and colours are inherited.
+    color: inherit;
+    font: inherit;
+
+    resize: none;
+
+
+    &::-ms-clear {
+      display: none;
+    }
+
+    &::-webkit-search-decoration {
+      -webkit-appearance: none;
+    }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+
+    &::-webkit-autofill {
+      border: 1px solid transparent;
+      background-clip: padding-box;
+    }
+  }
+}
+
+
+.input_disabled {
+  opacity: .6;
+
+
+  &:before {
+    display: none;
+  }
+
+
+  .input__control {
+    cursor: not-allowed;
+  }
+}
+
+
+.input_focused {}
+
+
+.input_invalid {}
+
+
+.input_size_s {
+  .input__control {
+    font-size: @classy-small-font-size;
+  }
+}
+
+
+.input_size_l {
+  .input__control {
+    font-size: @classy-lead-font-size;
+  }
+}
+
+
+.input_block {
+  width: 100%;
+}

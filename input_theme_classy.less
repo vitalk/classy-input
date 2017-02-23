@@ -1,0 +1,30 @@
+// A classy input theme.
+
+
+#input_theme_classy {
+  @b: rgba(0,0,0,.3);
+  @bs_focused: #666;
+  @bs_invalid: #e32222;
+}
+
+
+.input_theme_classy {
+  #input_theme_classy;
+
+
+  background-color: @b;
+
+
+  &.input_focused {
+    box-shadow:
+            0 0 0 1px @bs_focused,
+      inset 0 0 0 1px @bs_focused;
+  }
+
+
+  &.input_invalid {
+    box-shadow:
+            0 0 0 1px @bs_invalid,
+      inset 0 0 0 1px @bs_invalid;
+  }
+}
